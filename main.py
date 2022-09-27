@@ -39,6 +39,7 @@ def move():
     my_state = request.json['arena']['state']['https://cloud-run-hackathon-python-7ei5boopga-uc.a.run.app']
     all_state = request.json['arena']['state']
 
+
     if my_state['x'] == 0 and my_state['y'] == (dims[1] - 1) :
         for key, value in all_state.items():
             if key != 'https://cloud-run-hackathon-python-7ei5boopga-uc.a.run.app':
@@ -61,6 +62,10 @@ def move():
     
     if  my_state['x'] > 0 :
         if my_state['direction'] == 'W' :
+            for key, value in all_state.items():
+                if key != 'https://cloud-run-hackathon-python-7ei5boopga-uc.a.run.app':
+                    if my_state['x'] == (value['x'] + 1) and my_state['y'] == value['y']:
+                        return moves[1]
             return moves[0]
         elif my_state['direction'] == 'E' or my_state['direction'] == 'S':
             return moves[3]
@@ -69,6 +74,10 @@ def move():
     
     if my_state['y'] < (dims[1] - 1):
         if my_state['direction'] == 'S' :
+            for key, value in all_state.items():
+                if key != 'https://cloud-run-hackathon-python-7ei5boopga-uc.a.run.app':
+                    if my_state['x'] == value['x'] and my_state['y'] == (value['y'] - 1):
+                        return moves[1]
             return moves[0]
         elif my_state['direction'] == 'E' or my_state['direction'] == 'N':
             return moves[3]
