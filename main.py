@@ -34,7 +34,7 @@ def move():
     logger.info(request.json)
     
     # TODO add your implementation here to replace the random response
-    dims = request['arena']['dims']
+    dims = request.json['arena']['dims']
     print(dims)
     
     return moves[random.randrange(len(moves))]
