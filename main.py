@@ -70,6 +70,8 @@ def move():
         elif my_state['direction'] == 'S' :
             return 'R'
 
+    print(my_state)
+    print(enemy_state)
     if my_state['y'] > enemy_state['y']:
         if my_state['direction'] == 'N' :
             for key, value in all_state.items():
