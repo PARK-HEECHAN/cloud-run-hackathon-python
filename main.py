@@ -46,7 +46,7 @@ def move():
             return 'R'
         return 'T'
     
-      if my_state['x'] < (enemy_state['x'] - 1) :
+    if my_state['x'] < (enemy_state['x'] - 1) :
         if my_state['direction'] == 'E' :
             for key, value in all_state.items():
                 if key != 'https://cloud-run-hackathon-python-og36l62xga-uc.a.run.app':
