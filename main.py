@@ -45,7 +45,8 @@ def move():
         if my_state['direction'] != 'E':
             return 'R'
         return 'T'
-    
+    print(my_state)
+    print(enemy_state)
     if my_state['x'] < (enemy_state['x'] - 1) :
         if my_state['direction'] == 'E' :
             for key, value in all_state.items():
