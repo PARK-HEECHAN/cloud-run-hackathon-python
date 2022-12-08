@@ -43,7 +43,7 @@ def move():
 
     if my_state['x'] == (dims[0] - 1) and my_state['y'] == 0 :
         for key, value in all_state.items():
-            if key != 'https://cloud-run-hackathon-python-7ei5boopga-uc.a.run.app':
+            if key != 'https://cloud-run-hackathon-python-og36l62xga-uc.a.run.app':
                 if my_state['x'] == value['x'] and my_state['y'] >= (value['y'] - 3):
                     if my_state['direction'] == 'S':
                         return 'T'
@@ -62,7 +62,7 @@ def move():
     if my_state['y'] > 0:
         if my_state['direction'] == 'N' :
             for key, value in all_state.items():
-                if key != 'https://cloud-run-hackathon-python-7ei5boopga-uc.a.run.app':
+                if key != 'https://cloud-run-hackathon-python-og36l62xga-uc.a.run.app':
                     if my_state['x'] == value['x'] and my_state['y'] <= (value['y'] + 3):
                         return 'T'
             return 'F'
@@ -74,7 +74,7 @@ def move():
     if  my_state['x'] < (dims[0] - 1) :
         if my_state['direction'] == 'E' :
             for key, value in all_state.items():
-                if key != 'https://cloud-run-hackathon-python-7ei5boopga-uc.a.run.app':
+                if key != 'https://cloud-run-hackathon-python-og36l62xga-uc.a.run.app':
                     if my_state['x'] >= (value['x'] - 3) and my_state['y'] == value['y']:
                         return 'T'
             return 'F'
