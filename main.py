@@ -46,6 +46,29 @@ def move():
             return 'R'
         return 'T'
     
+      if my_state['x'] < (enemy_state['x'] - 1) :
+        if my_state['direction'] == 'E' :
+            for key, value in all_state.items():
+                if key != 'https://cloud-run-hackathon-python-og36l62xga-uc.a.run.app':
+                    if my_state['x'] >= (value['x'] - 3) and my_state['y'] == value['y']:
+                        return 'T'
+            return 'F'
+        elif my_state['direction'] == 'W' or my_state['direction'] == 'N':
+            return 'R'
+        elif my_state['direction'] == 'S' :
+            return 'L'
+    elif my_state['x'] > (enemy_state['x'] - 1) :
+        if my_state['direction'] == 'W' :
+            for key, value in all_state.items():
+                if key != 'https://cloud-run-hackathon-python-og36l62xga-uc.a.run.app':
+                    if my_state['x'] <= (value['x'] + 3) and my_state['y'] == value['y']:
+                        return 'T'
+            return 'F'
+        elif my_state['direction'] == 'E' or my_state['direction'] == 'N':
+            return 'L'
+        elif my_state['direction'] == 'S' :
+            return 'R'
+
     if my_state['y'] > enemy_state['y']:
         if my_state['direction'] == 'N' :
             for key, value in all_state.items():
@@ -68,29 +91,6 @@ def move():
             return 'R'
         elif my_state['direction'] == 'W' :
             return 'L'
-
-    if  my_state['x'] < (enemy_state['x'] - 1) :
-        if my_state['direction'] == 'E' :
-            for key, value in all_state.items():
-                if key != 'https://cloud-run-hackathon-python-og36l62xga-uc.a.run.app':
-                    if my_state['x'] >= (value['x'] - 3) and my_state['y'] == value['y']:
-                        return 'T'
-            return 'F'
-        elif my_state['direction'] == 'W' or my_state['direction'] == 'N':
-            return 'R'
-        elif my_state['direction'] == 'S' :
-            return 'L'
-    elif  my_state['x'] > (enemy_state['x'] - 1) :
-        if my_state['direction'] == 'W' :
-            for key, value in all_state.items():
-                if key != 'https://cloud-run-hackathon-python-og36l62xga-uc.a.run.app':
-                    if my_state['x'] <= (value['x'] + 3) and my_state['y'] == value['y']:
-                        return 'T'
-            return 'F'
-        elif my_state['direction'] == 'E' or my_state['direction'] == 'N':
-            return 'L'
-        elif my_state['direction'] == 'S' :
-            return 'R'
 
     return 'T'
 
