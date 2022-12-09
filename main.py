@@ -63,22 +63,98 @@ def move():
                 if key != 'https://cloud-run-hackathon-python-og36l62xga-uc.a.run.app':
                     if my_state['x'] == value['x'] and my_state['y'] <= (value['y'] + 3):
                         return 'T'
+                    elif my_state['x'] == value['x'] and my_state['y'] >= (value['y'] - 3):
+                        return 'R'
+                    elif my_state['x'] >= (value['x'] + 3) and my_state['y'] == value['y']:
+                        return 'L'
+                    elif my_state['x'] <= (value['x'] - 3) and my_state['y'] == value['y']:
+                        return 'R'
             return 'F'
-        elif my_state['direction'] == 'E' or my_state['direction'] == 'S':
+        elif my_state['direction'] == 'E' :
+            for key, value in all_state.items():
+                if key != 'https://cloud-run-hackathon-python-og36l62xga-uc.a.run.app':
+                    if my_state['x'] == value['x'] and my_state['y'] <= (value['y'] + 3):
+                        return 'L'
+                    elif my_state['x'] == value['x'] and my_state['y'] >= (value['y'] - 3):
+                        return 'R'
+                    elif my_state['x'] >= (value['x'] + 3) and my_state['y'] == value['y']:
+                        return 'L'
+                    elif my_state['x'] <= (value['x'] - 3) and my_state['y'] == value['y']:
+                        return 'T'
+            return 'L'
+        elif my_state['direction'] == 'S' :
+            for key, value in all_state.items():
+                if key != 'https://cloud-run-hackathon-python-og36l62xga-uc.a.run.app':
+                    if my_state['x'] == value['x'] and my_state['y'] <= (value['y'] + 3):
+                        return 'L'
+                    elif my_state['x'] == value['x'] and my_state['y'] >= (value['y'] - 3):
+                        return 'T'
+                    elif my_state['x'] >= (value['x'] + 3) and my_state['y'] == value['y']:
+                        return 'R'
+                    elif my_state['x'] <= (value['x'] - 3) and my_state['y'] == value['y']:
+                        return 'L'
             return 'L'
         elif my_state['direction'] == 'W' :
+            for key, value in all_state.items():
+                if key != 'https://cloud-run-hackathon-python-og36l62xga-uc.a.run.app':
+                    if my_state['x'] == value['x'] and my_state['y'] <= (value['y'] + 3):
+                        return 'T'
+                    elif my_state['x'] == value['x'] and my_state['y'] >= (value['y'] - 3):
+                        return 'R'
+                    elif my_state['x'] >= (value['x'] + 3) and my_state['y'] == value['y']:
+                        return 'L'
+                    elif my_state['x'] <= (value['x'] - 3) and my_state['y'] == value['y']:
+                        return 'R'
             return 'R'
 
     if  my_state['x'] < (dims[0] - 1) :
         if my_state['direction'] == 'E' :
             for key, value in all_state.items():
                 if key != 'https://cloud-run-hackathon-python-og36l62xga-uc.a.run.app':
-                    if my_state['x'] >= (value['x'] - 3) and my_state['y'] == value['y']:
+                    if my_state['x'] == value['x'] and my_state['y'] <= (value['y'] + 3):
+                        return 'L'
+                    elif my_state['x'] == value['x'] and my_state['y'] >= (value['y'] - 3):
+                        return 'R'
+                    elif my_state['x'] >= (value['x'] + 3) and my_state['y'] == value['y']:
+                        return 'L'
+                    elif my_state['x'] <= (value['x'] - 3) and my_state['y'] == value['y']:
                         return 'T'
             return 'F'
-        elif my_state['direction'] == 'W' or my_state['direction'] == 'N':
+        elif my_state['direction'] == 'W':
+            for key, value in all_state.items():
+                if key != 'https://cloud-run-hackathon-python-og36l62xga-uc.a.run.app':
+                    if my_state['x'] == value['x'] and my_state['y'] <= (value['y'] + 3):
+                        return 'T'
+                    elif my_state['x'] == value['x'] and my_state['y'] >= (value['y'] - 3):
+                        return 'R'
+                    elif my_state['x'] >= (value['x'] + 3) and my_state['y'] == value['y']:
+                        return 'L'
+                    elif my_state['x'] <= (value['x'] - 3) and my_state['y'] == value['y']:
+                        return 'R'
+            return 'R'
+        elif my_state['direction'] == 'N':
+            for key, value in all_state.items():
+                if key != 'https://cloud-run-hackathon-python-og36l62xga-uc.a.run.app':
+                    if my_state['x'] == value['x'] and my_state['y'] <= (value['y'] + 3):
+                        return 'T'
+                    elif my_state['x'] == value['x'] and my_state['y'] >= (value['y'] - 3):
+                        return 'R'
+                    elif my_state['x'] >= (value['x'] + 3) and my_state['y'] == value['y']:
+                        return 'L'
+                    elif my_state['x'] <= (value['x'] - 3) and my_state['y'] == value['y']:
+                        return 'R'
             return 'R'
         elif my_state['direction'] == 'S' :
+            for key, value in all_state.items():
+                if key != 'https://cloud-run-hackathon-python-og36l62xga-uc.a.run.app':
+                    if my_state['x'] == value['x'] and my_state['y'] <= (value['y'] + 3):
+                        return 'L'
+                    elif my_state['x'] == value['x'] and my_state['y'] >= (value['y'] - 3):
+                        return 'T'
+                    elif my_state['x'] >= (value['x'] + 3) and my_state['y'] == value['y']:
+                        return 'R'
+                    elif my_state['x'] <= (value['x'] - 3) and my_state['y'] == value['y']:
+                        return 'L'
             return 'L'
 
     return 'T'
