@@ -116,9 +116,7 @@ def move():
                     elif my_state['x'] == value['x'] and my_state['y'] >= (value['y'] - 3):
                         return 'R'
                     elif my_state['x'] >= (value['x'] + 3) and my_state['y'] == value['y']:
-                        return 'L'
-                    elif my_state['x'] == value['x'] and my_state['y'] <= (value['y'] + 3):
-                        return 'L'
+                        return 'R'
             return 'F'
         elif my_state['direction'] == 'W':
             for key, value in all_state.items():
@@ -127,17 +125,13 @@ def move():
                         return 'T'
                     elif my_state['x'] == value['x'] and my_state['y'] >= (value['y'] - 3):
                         return 'L'
-                    elif my_state['x'] == value['x'] and my_state['y'] <= (value['y'] + 3):
-                        return 'R'
                     elif my_state['x'] <= (value['x'] - 3) and my_state['y'] == value['y']:
-                        return 'R'
+                        return 'L'
             return 'R'
         elif my_state['direction'] == 'N':
             for key, value in all_state.items():
                 if key != 'https://cloud-run-hackathon-python-og36l62xga-uc.a.run.app':
-                    if my_state['x'] == value['x'] and my_state['y'] <= (value['y'] + 3):
-                        return 'T'
-                    elif my_state['x'] == value['x'] and my_state['y'] >= (value['y'] - 3):
+                    if my_state['x'] == value['x'] and my_state['y'] >= (value['y'] - 3):
                         return 'R'
                     elif my_state['x'] >= (value['x'] + 3) and my_state['y'] == value['y']:
                         return 'L'
@@ -149,8 +143,6 @@ def move():
                 if key != 'https://cloud-run-hackathon-python-og36l62xga-uc.a.run.app':
                     if my_state['x'] == value['x'] and my_state['y'] >= (value['y'] - 3):
                         return 'T'                   
-                    elif my_state['x'] == value['x'] and my_state['y'] <= (value['y'] + 3):
-                        return 'L'
                     elif my_state['x'] >= (value['x'] + 3) and my_state['y'] == value['y']:
                         return 'R'
                     elif my_state['x'] <= (value['x'] - 3) and my_state['y'] == value['y']:
