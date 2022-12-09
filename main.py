@@ -33,46 +33,31 @@ def index():
 def move():
     request.get_data()
     # logger.info(request.json)
-    
     # TODO add your implementation here to replace the random response
     dims = request.json['arena']['dims']
-    
+
     my_state = request.json['arena']['state']['https://cloud-run-hackathon-python-og36l62xga-uc.a.run.app']
-    enemy_state = request.json['arena']['state']['https://cloud-run-hackathon-python-xp5leyhpkq-uc.a.run.app']
     all_state = request.json['arena']['state']
 
-    if my_state['x'] == (enemy_state['x'] - 1) and my_state['y'] == enemy_state['y'] :
-        if my_state['direction'] != 'E':
-            return 'R'
-        return 'T'
-    print(my_state)
-    print(enemy_state)
-    if my_state['x'] < (enemy_state['x'] - 1) :
-        if my_state['direction'] == 'E' :
-            for key, value in all_state.items():
-                if key != 'https://cloud-run-hackathon-python-og36l62xga-uc.a.run.app':
-                    if my_state['x'] >= (value['x'] - 3) and my_state['y'] == value['y']:
+    if my_state['x'] == (dims[0] - 1) and my_state['y'] == 0 :
+        for key, value in all_state.items():
+            if key != 'https://cloud-run-hackathon-python-og36l62xga-uc.a.run.app':
+                if my_state['x'] == value['x'] and my_state['y'] >= (value['y'] - 3):
+                    if my_state['direction'] == 'S':
                         return 'T'
-            return 'F'
-        elif my_state['direction'] == 'W' or my_state['direction'] == 'N':
-            return 'R'
-        elif my_state['direction'] == 'S' :
-            return 'L'
-    elif my_state['x'] > (enemy_state['x'] - 1) :
-        if my_state['direction'] == 'W' :
-            for key, value in all_state.items():
-                if key != 'https://cloud-run-hackathon-python-og36l62xga-uc.a.run.app':
-                    if my_state['x'] <= (value['x'] + 3) and my_state['y'] == value['y']:
+                    elif my_state['direction'] == 'E' or my_state['direction'] == 'N':
+                        return 'R'
+                    else:
+                        return 'L'
+                elif my_state['x'] <= (value['x'] + 3) and my_state['y'] == value['y']:
+                    if my_state['direction'] == 'W':
                         return 'T'
-            return 'F'
-        elif my_state['direction'] == 'E' or my_state['direction'] == 'N':
-            return 'L'
-        elif my_state['direction'] == 'S' :
-            return 'R'
+                    elif my_state['direction'] == 'N' or my_state['direction'] == 'E':
+                        return 'L'
+                    else:
+                        return 'R'
 
-    print(my_state)
-    print(enemy_state)
-    if my_state['y'] > enemy_state['y']:
+    if my_state['y'] > 0:
         if my_state['direction'] == 'N' :
             for key, value in all_state.items():
                 if key != 'https://cloud-run-hackathon-python-og36l62xga-uc.a.run.app':
@@ -83,20 +68,20 @@ def move():
             return 'L'
         elif my_state['direction'] == 'W' :
             return 'R'
-    elif my_state['y'] < enemy_state['y']:
-        if my_state['direction'] == 'S' :
+
+    if  my_state['x'] < (dims[0] - 1) :
+        if my_state['direction'] == 'E' :
             for key, value in all_state.items():
                 if key != 'https://cloud-run-hackathon-python-og36l62xga-uc.a.run.app':
-                    if my_state['x'] == value['x'] and my_state['y'] >= (value['y'] - 3):
+                    if my_state['x'] >= (value['x'] - 3) and my_state['y'] == value['y']:
                         return 'T'
             return 'F'
-        elif my_state['direction'] == 'E' or my_state['direction'] == 'N':
+        elif my_state['direction'] == 'W' or my_state['direction'] == 'N':
             return 'R'
-        elif my_state['direction'] == 'W' :
+        elif my_state['direction'] == 'S' :
             return 'L'
 
     return 'T'
 
 if __name__ == "__main__":
   app.run(debug=False,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
-  
